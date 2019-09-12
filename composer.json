@@ -1,0 +1,25 @@
+{
+    "name": "ilhamarrouf/slim-filesystem",
+    "description": "Slim Framework FileSystem abstraction layer library",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Muhamad Ilham Arrouf",
+            "email": "ilham.arrouf@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=7.2",
+        "slim/slim": "^3.8",
+        "league/flysystem": "^1.0",
+        "league/flysystem-aws-s3-v3": "^1.0",
+        "illuminate/support": "^5.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Ilhamarrouf\\Filesystem\\": "src/"
+        }
+    }
+}
