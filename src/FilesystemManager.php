@@ -10,6 +10,7 @@ namespace Ilhamarrouf\Filesystem;
 
 use Aws\S3\S3Client;
 use Illuminate\Support\Arr;
+use League\Flysystem\Adapter\Local as LocalAdapter;
 use League\Flysystem\AdapterInterface;
 use League\Flysystem\AwsS3v3\AwsS3Adapter;
 use League\Flysystem\Filesystem;
@@ -94,6 +95,19 @@ class FilesystemManager
         return $this->adapt($this->createFlysystem(
             new AwsS3Adapter(new S3Client($s3Config), $s3Config['bucket'], $root, $options), $config
         ));
+    }
+
+    public function createLocalDriver(array $config)
+    {
+        $permissions = $config['permissions'] ?? [];
+
+        $links = ($config['links'] ?? null) === 'skip'
+            ? LocalAdapter::SKIP_LINKS
+            : LocalAdapter::DISALLOW_LINKS;
+
+        return $this->adapt($this->createFlysystem(new LocalAdapter(
+            $config['root'], $config['lock'] ?? LOCK_EX, $links, $permissions
+        ), $config));
     }
 
     protected function formatS3Config(array $config)
