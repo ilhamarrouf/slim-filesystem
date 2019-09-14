@@ -1,7 +1,7 @@
 Slim Filesystem
 ===============
 
-A simple filesystem for PHP slim framework.
+A simple filesystem for PHP slim framework like [Laravel Storage](https://laravel.com/docs/6.x/filesystem).
 
 Getting Started
 ------------------
@@ -14,7 +14,10 @@ Slim Filesystem works with Composer's autoloader out of the bat.
 ```js
 {
 	"require": {
-		"ilhamarrouf/slim-filesystem": "dev-master"
+		"ilhamarrouf/slim-filesystem": "0.1.0"
 	}
 }
 ```
+Or
+
+`composer require ilhamarrouf/slim-filesystem`
